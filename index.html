@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login / Sign Up - DivineCart</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #e3e9ff;
+        }
+        header {
+            background: linear-gradient(90deg, #70a1ff 60%, #e75480 100%);
+            color: #fff;
+            padding: 18px 0;
+            text-align: center;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+            background: #ffe4ee;
+        }
+        .container {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 3px 12px rgba(112,161,255,0.15);
+            display: flex;
+            overflow: hidden;
+        }
+        .side-panel {
+            background: linear-gradient(120deg,#e75480 70%,#70a1ff 100%);
+            padding: 40px 24px;
+            text-align: center;
+        }
+        .form-section {
+            padding: 40px 36px;
+            background: #fff0f6;
+        }
+        input {
+            width: 100%;
+            margin: 8px 0 15px 0;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1.5px solid #70a1ff;
+        }
+        button {
+            width: 100%;
+            background: #70a1ff;
+            color: #fff;
+            padding: 12px;
+            margin-bottom: 8px;
+            border: none;
+            border-radius: 16px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        footer {
+            background: linear-gradient(90deg, #70a1ff 60%, #e75480 100%);
+            color: #fff;
+            text-align: center;
+            padding: 12px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DivineCart</h1>
+    </header>
+    <main>
+        <section class="container">
+            <div class="side-panel">
+                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=220&q=80"
+                     style="border-radius:14px; width:140px; height:140px; object-fit:cover; margin-bottom:30px;" 
+                     alt="Shopping Woman">
+                <h2 style="color:#fff;">Join DivineCart</h2>
+                <p style="color:#fff;">Look, choose, and shop with your account!</p>
+            </div>
+            <div class="form-section">
+                <form action="capstone.html" method="POST">
+                    <h3 style="color:#70a1ff;">Login to DivineCart</h3>
+                    <label>Email</label>
+                    <input type="email" placeholder="Enter email" required>
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter password" required>
+                    <button type="submit" href="capstone.html">Login</button>
+                    <p style="text-align:right;">
+                        <a href="#" style="color:#e75480;">Forgot Password?</a>
+                    </p>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 DivineCart</p>
+    </footer>
+</body>
+</html>
