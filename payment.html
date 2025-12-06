@@ -4,151 +4,233 @@
     <meta charset="UTF-8">
     <title>Payment - DivineCart</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #e3e9ff;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: radial-gradient(circle at top, #1e90ff 0%, #001a33 60%, #000814 100%);
+        color: #e0f4ff;
+      }
 
-        header {
-            background: linear-gradient(90deg, #70a1ff 60%, #e75480 100%);
-            color: #fff;
-            padding: 18px 0;
-            text-align: center;
-        }
+      /* Header */
+      header {
+        background: linear-gradient(90deg, #001233 0%, #003566 40%, #00b4d8 100%);
+        color: #fff;
+        padding: 18px 0;
+        text-align: center;
+      }
 
-        header h1 {
-            margin: 0;
-        }
+      header h1 {
+        margin: 0;
+      }
 
-        nav {
-            margin-top: 10px;
-        }
+      nav {
+        margin-top: 10px;
+      }
 
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+      nav a {
+        color: #e0f4ff;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+      }
 
-        main {
-            max-width: 750px;
-            margin: 30px auto;
-            padding: 20px;
-            background: #ffe4ee;
-            border-radius: 16px;
-        }
+      nav a:hover {
+        color: #90e0ef;
+        transform: scale(1.05);
+      }
 
-        .page-title {
-            color: #70a1ff;
-            text-align: center;
-        }
+      /* Main layout */
+      main {
+        max-width: 750px;
+        margin: 30px auto;
+        padding: 20px;
+        background: linear-gradient(135deg, rgba(0, 36, 91, 0.9), rgba(0, 119, 182, 0.9));
+        border-radius: 16px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+      }
 
+      .page-title {
+        color: #caf0f8;
+        text-align: center;
+      }
+
+      .order-summary {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        margin: 24px 0 38px 0;
+        background: #001324;
+        border-radius: 14px;
+        padding: 16px 18px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.55);
+      }
+
+      .product-image {
+        width: 65px;
+        height: 65px;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+
+      .order-total {
+        flex: 1;
+        text-align: right;
+      }
+
+      .total-label {
+        color: #ffb3c6;
+        margin-bottom: 8px;
+      }
+
+      .total-amount {
+        color: #90e0ef;
+        font-size: 1.3em;
+        font-weight: bold;
+      }
+
+      /* Payment methods */
+      .payment-methods {
+        margin-bottom: 38px;
+      }
+
+      .payment-methods h3 {
+        color: #ffb3c6;
+        margin-bottom: 20px;
+      }
+
+      .payment-options {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .payment-option {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        cursor: pointer;
+        padding: 8px 10px;
+        border-radius: 10px;
+        background: #001324;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        transition: transform 0.2s ease-in-out,
+                    box-shadow 0.2s ease-in-out,
+                    background 0.2s ease-in-out;
+      }
+
+      .payment-option:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 14px rgba(0,0,0,0.6);
+        background: #001937;
+      }
+
+      .payment-option input {
+        accent-color: #00b4d8;
+      }
+
+      .payment-logo {
+        width: 40px;
+        height: 26px;
+        object-fit: contain;
+        background: #fff;
+        border-radius: 4px;
+      }
+
+      /* Card details */
+      .card-details {
+        max-width: 430px;
+        margin: auto;
+        background: #001022;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.6);
+        border-radius: 12px;
+        padding: 25px 28px;
+      }
+
+      .card-details h3 {
+        color: #90e0ef;
+        margin-top: 0;
+        margin-bottom: 12px;
+      }
+
+      .form-label {
+        color: #ffb3c6;
+        font-size: 0.9em;
+      }
+
+      .form-input {
+        width: 100%;
+        margin: 6px 0 15px 0;
+        padding: 9px;
+        border-radius: 9px;
+        border: 1.5px solid #00b4d8;
+        background: #000f1f;
+        color: #e0f4ff;
+      }
+
+      .form-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .form-input-half {
+        width: 50%;
+      }
+
+      .form-input-cvv {
+        width: 50%;
+      }
+
+      /* Buttons base animation */
+      .submit-button {
+        width: 100%;
+        background: #00b4d8;
+        color: #001233;
+        padding: 13px;
+        margin-top: 8px;
+        border: none;
+        border-radius: 15px;
+        font-size: 1em;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.6);
+        transition: transform 0.2s ease-in-out,
+                    box-shadow 0.2s ease-in-out,
+                    background 0.2s ease-in-out,
+                    color 0.2s ease-in-out;
+      }
+
+      .submit-button:hover {
+        transform: scale(1.04);
+        background: #0096c7;
+        box-shadow: 0 5px 18px rgba(0,0,0,0.75);
+      }
+
+      /* Responsive */
+      @media (max-width: 640px) {
         .order-summary {
-            display: flex;
-            gap: 36px;
-            align-items: center;
-            margin: 24px 0 38px 0;
-        }
-
-        .product-image {
-            width: 65px;
-            height: 65px;
-            border-radius: 10px;
-            object-fit: cover;
+          flex-wrap: wrap;
+          justify-content: center;
+          text-align: center;
         }
 
         .order-total {
-            flex: 1;
-            text-align: right;
-        }
-
-        .total-label {
-            color: #e75480;
-            margin-bottom: 8px;
-        }
-
-        .total-amount {
-            color: #70a1ff;
-            font-size: 1.3em;
-            font-weight: bold;
-        }
-
-        .payment-methods {
-            margin-bottom: 38px;
-        }
-
-        .payment-methods h3 {
-            color: #e75480;
-            margin-bottom: 20px;
+          text-align: center;
+          margin-top: 10px;
         }
 
         .payment-options {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .payment-option {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            cursor: pointer;
-        }
-
-        .payment-logo {
-            width: 40px;
-            height: 26px;
+          flex-direction: column;
+          align-items: flex-start;
         }
 
         .card-details {
-            max-width: 430px;
-            margin: auto;
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(112,161,255,0.11);
-            border-radius: 12px;
-            padding: 25px 28px;
+          padding: 20px 18px;
         }
-
-        .card-details h3 {
-            color: #70a1ff;
-        }
-
-        .form-label {
-            color: #e75480;
-        }
-
-        .form-input {
-            width: 100%;
-            margin: 6px 0 15px 0;
-            padding: 9px;
-            border-radius: 9px;
-            border: 1.5px solid #70a1ff;
-        }
-
-        .form-input-half {
-            width: 48%;
-            margin: 6px 7px 15px 0;
-        }
-
-        .form-input-cvv {
-            width: 44%;
-            margin: 6px 0 15px 0;
-        }
-
-        .submit-button {
-            width: 100%;
-            background: #e75480;
-            color: #fff;
-            padding: 13px;
-            margin-top: 8px;
-            border: none;
-            border-radius: 15px;
-            font-size: 1em;
-            font-weight: bold;
-            cursor: pointer;
-        }
+      }
     </style>
 </head>
 <body>
@@ -159,66 +241,76 @@
             <a href="cart.html">Cart</a>
         </nav>
     </header>
+
     <main>
         <h2 class="page-title">Complete Your Payment</h2>
+
         <section class="order-summary">
             <img class="product-image" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=80&q=80" alt="Summer Dress">
-
-            
-
-            <img class="product-image" src="https://plus.unsplash.com/premium_photo-1726743622090-abfc4a91f80b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Organic Honey">
-
+            <img class="product-image" src="https://plus.unsplash.com/premium_photo-1726743622090-abfc4a91f80b?q=80&w=2070&auto=format&fit=crop" alt="Organic Honey">
             <img class="product-image" src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=80&q=80" alt="Smartphone X">
             <div class="order-total">
                 <p class="total-label"><b>Order Total:</b></p>
                 <span class="total-amount">₹18,036</span>
             </div>
         </section>
+
         <section class="payment-methods">
             <h3>Choose Payment Method</h3>
             <div class="payment-options">
                 <label class="payment-option">
                     <input type="radio" name="paymethod" checked>
                     <img class="payment-logo" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa">
-                    <span style="color:#70a1ff;font-weight:bold;">Card</span>
+                    <span style="color:#90e0ef;font-weight:bold;">Card</span>
                 </label>
                 <label class="payment-option">
                     <input type="radio" name="paymethod">
                     <img class="payment-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" alt="Mastercard">
-                    <span style="color:#e75480;font-weight:bold;">Card</span>
+                    <span style="color:#ffb3c6;font-weight:bold;">Card</span>
                 </label>
                 <label class="payment-option">
                     <input type="radio" name="paymethod">
                     <img class="payment-logo" src="https://upload.wikimedia.org/wikipedia/commons/4/49/RuPay_Logo.jpg" alt="Rupay">
-                    <span style="color:#434343;font-weight:bold;">RuPay</span>
+                    <span style="color:#e0f4ff;font-weight:bold;">RuPay</span>
                 </label>
                 <label class="payment-option">
                     <input type="radio" name="paymethod">
                     <img class="payment-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PhonePe_Logo.svg/2560px-PhonePe_Logo.svg.png" alt="PhonePe">
-                    <span style="color:#70a1ff;font-weight:bold;">UPI</span>
+                    <span style="color:#90e0ef;font-weight:bold;">UPI</span>
                 </label>
                 <label class="payment-option">
                     <input type="radio" name="paymethod">
                     <img class="payment-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Paytm_logo.jpg" alt="Paytm">
-                    <span style="color:#e75480;font-weight:bold;">Wallet</span>
+                    <span style="color:#ffb3c6;font-weight:bold;">Wallet</span>
                 </label>
             </div>
         </section>
+
         <section class="card-details">
             <h3>Card Details</h3>
             <form>
                 <label class="form-label">Cardholder Name</label><br>
                 <input type="text" placeholder="Full Name" required class="form-input"><br>
+
                 <label class="form-label">Card Number</label><br>
                 <input type="text" placeholder="XXXX XXXX XXXX XXXX" required class="form-input"><br>
-                <label class="form-label">Expiry Date</label><br>
-                <input type="text" placeholder="MM/YY" required class="form-input form-input-half">
-                <label class="form-label">CVV</label>
-                <input type="text" placeholder="CVV" required class="form-input form-input-cvv"><br>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Expiry Date</label><br>
+                        <input type="text" placeholder="MM/YY" required class="form-input form-input-half">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">CVV</label><br>
+                        <input type="text" placeholder="CVV" required class="form-input form-input-cvv">
+                    </div>
+                </div>
+
                 <button type="submit" class="submit-button">Pay ₹18,036</button>
             </form>
         </section>
     </main>
-</body>
-</html></section></label></div></section>
 
+    
+</body>
+</html>
