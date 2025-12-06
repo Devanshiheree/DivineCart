@@ -4,101 +4,210 @@
     <meta charset="UTF-8">
     <title>Login / Sign Up - DivineCart</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #e3e9ff;
+      /* Global */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: radial-gradient(circle at top, #1e90ff 0%, #001a33 60%, #000814 100%);
+        color: #e0f4ff;
+      }
+
+      /* Header */
+      .login-header {
+        background: linear-gradient(90deg, #001233 0%, #003566 40%, #00b4d8 100%);
+        color: #fff;
+        padding: 18px 0;
+        text-align: center;
+      }
+
+      .login-header h1 {
+        margin: 0;
+      }
+
+      /* Main */
+      .login-main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 90vh;
+        background: linear-gradient(135deg, rgba(0, 36, 91, 0.9), rgba(0, 119, 182, 0.9));
+      }
+
+      /* Container */
+      .login-container {
+        background: #001d3d;
+        border-radius: 18px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+        display: flex;
+        overflow: hidden;
+        max-width: 780px;
+      }
+
+      /* Side panel */
+      .login-side-panel {
+        background: linear-gradient(120deg, #001f54 0%, #0077b6 60%, #00b4d8 100%);
+        padding: 40px 24px;
+        text-align: center;
+        color: #fff;
+        min-width: 260px;
+      }
+
+      .login-side-image {
+        border-radius: 14px;
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        margin-bottom: 30px;
+      }
+
+      .login-side-panel h2 {
+        margin: 0 0 10px;
+      }
+
+      .login-side-panel p {
+        margin: 0;
+      }
+
+      /* Form section */
+      .login-form-section {
+        padding: 40px 36px;
+        background: #001324;
+        min-width: 320px;
+      }
+
+      .login-form h3 {
+        color: #90e0ef;
+        margin-top: 0;
+      }
+
+      .login-form label {
+        display: block;
+        color: #e0f4ff;
+        font-size: 0.9em;
+        margin-top: 5px;
+      }
+
+      .login-form input {
+        width: 100%;
+        margin: 8px 0 15px 0;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1.5px solid #00b4d8;
+        background: #000f1f;
+        color: #e0f4ff;
+      }
+
+      /* Base animation for clickable elements */
+      .login-btn,
+      .forgot-link {
+        transition: transform 0.2s ease-in-out,
+                    box-shadow 0.2s ease-in-out,
+                    background 0.2s ease-in-out,
+                    color 0.2s ease-in-out;
+      }
+
+      /* Login button */
+      .login-btn {
+        width: 100%;
+        background: #00b4d8;
+        color: #001233;
+        padding: 12px;
+        margin-top: 5px;
+        margin-bottom: 8px;
+        border: none;
+        border-radius: 16px;
+        font-size: 1em;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      .login-btn:hover {
+        transform: scale(1.04);
+        box-shadow: 0 5px 16px rgba(0, 0, 0, 0.6);
+        background: #0096c7;
+      }
+
+      /* Forgot password link */
+      .forgot-text {
+        text-align: right;
+        margin: 8px 0 0 0;
+      }
+
+      .forgot-link {
+        color: #90e0ef;
+        text-decoration: none;
+        font-size: 0.9em;
+      }
+
+      .forgot-link:hover {
+        color: #caf0f8;
+        transform: scale(1.03);
+      }
+
+      /* Footer */
+      .login-footer {
+        background: linear-gradient(90deg, #000814 0%, #001d3d 40%, #003566 100%);
+        color: #e0f4ff;
+        text-align: center;
+        padding: 12px 0;
+      }
+
+      .login-footer p {
+        margin: 0;
+      }
+
+      /* Responsive */
+      @media (max-width: 720px) {
+        .login-container {
+          flex-direction: column;
         }
-        header {
-            background: linear-gradient(90deg, #70a1ff 60%, #e75480 100%);
-            color: #fff;
-            padding: 18px 0;
-            text-align: center;
+
+        .login-side-panel {
+          padding-bottom: 20px;
         }
-        main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 90vh;
-            background: #ffe4ee;
-        }
-        .container {
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 3px 12px rgba(112,161,255,0.15);
-            display: flex;
-            overflow: hidden;
-        }
-        .side-panel {
-            background: linear-gradient(120deg,#e75480 70%,#70a1ff 100%);
-            padding: 40px 24px;
-            text-align: center;
-        }
-        .form-section {
-            padding: 40px 36px;
-            background: #fff0f6;
-        }
-        input {
-            width: 100%;
-            margin: 8px 0 15px 0;
-            padding: 10px;
-            border-radius: 10px;
-            border: 1.5px solid #70a1ff;
-        }
-        button {
-            width: 100%;
-            background: #70a1ff;
-            color: #fff;
-            padding: 12px;
-            margin-bottom: 8px;
-            border: none;
-            border-radius: 16px;
-            font-size: 1em;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        footer {
-            background: linear-gradient(90deg, #70a1ff 60%, #e75480 100%);
-            color: #fff;
-            text-align: center;
-            padding: 12px 0;
-        }
+      }
     </style>
 </head>
 <body>
-    <header>
+    <header class="login-header">
         <h1>DivineCart</h1>
     </header>
-    <main>
-        <section class="container">
-            <div class="side-panel">
-                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=220&q=80"
-                     style="border-radius:14px; width:140px; height:140px; object-fit:cover; margin-bottom:30px;" 
-                     alt="Shopping Woman">
-                <h2 style="color:#fff;">Join DivineCart</h2>
-                <p style="color:#fff;">Look, choose, and shop with your account!</p>
-            </div>
-            <div class="form-section">
-                <form action="capstone.html" method="POST">
-                    <h3 style="color:#70a1ff;">Login to DivineCart</h3>
-                    <label>Email</label>
 
+    <main class="login-main">
+        <section class="login-container">
+            <div class="login-side-panel">
+                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=220&q=80"
+                     class="login-side-image"
+                     alt="Shopping Woman">
+                <h2>Join DivineCart</h2>
+                <p>Look, choose, and shop with your account!</p>
+            </div>
+
+            <div class="login-form-section">
+                <form action="capstone.html" method="POST" class="login-form">
+                    <h3>Login to DivineCart</h3>
+
+                    <label>Email</label>
                     <input type="email" placeholder="Enter email" required>
+
                     <label>Password</label>
                     <input type="password" placeholder="Enter password" required>
-                    
 
-                    <a style="text-decoration: none; border: 11px solid #f6bccd; border-radius: 2rem; background-color: #f6bccd;" href="capstone.html" class="button" type="button">Login</a>
+                    <button type="submit" class="login-btn">Login</button>
 
-                    <p style="text-align:right;">
-                        <a href="#" style="color:#e75480;">Forgot Password?</a>
+                    <p class="forgot-text">
+                        <a href="#" class="forgot-link">Forgot Password?</a>
                     </p>
                 </form>
             </div>
         </section>
     </main>
-    <footer>
+
+    <footer class="login-footer">
         <p>&copy; 2025 DivineCart</p>
     </footer>
+
+    <script src="login.js"></script>
 </body>
 </html>
